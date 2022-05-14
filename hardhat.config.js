@@ -1,4 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
+require("@nomiclabs/hardhat-etherscan");
+require("@tenderly/hardhat-tenderly");
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -17,5 +19,20 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  solidity: "0.8.4",
+  solidity: {
+    version: "0.8.13"
+  },
+  defaultNetwork: "hardhat",
+  networks: {
+    maticMainnet: {
+      url: process.env.RPC_URL,
+      accounts: [process.env.PRIVATE_KEY],
+      gasPrice: 50000000000
+    },
+  },
+  etherscan: {
+    apiKey: {
+        polygon: process.env.API_KEY,
+    }
+  }
 };
