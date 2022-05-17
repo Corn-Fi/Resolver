@@ -12,16 +12,22 @@ async function deployResolver() {
   return await resolver.deployed();
 }
 
+async function polygonScanVerify(contractAddress, args, contractPath) {
+  await hre.run("verify:verify", {
+    address: contractAddress,
+    constructorArguments: args,
+    contract: contractPath
+  });
+}
 
 
 async function main() {
-  // // ------------------------------------------------------------------------
-  // // Step 1 - Deploy Resolver contract
-  // // ------------------------------------------------------------------------
   const resolver = await deployResolver();
   console.log(`
     Resolver deployed at ${resolver.address}
   `);
+
+  await polygonScanVerify(resolver.address, [], "contracts/Resolver.sol:Resolver");
 }
 
 // We recommend this pattern to be able to use async/await everywhere
