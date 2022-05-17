@@ -4,7 +4,6 @@ const addresses = {
     devTreasury: "0x93F835b9a2eec7D2E289c1E0D50Ad4dEd88b253f",
     cornTreasury: "0xfC484aFB55D9EA9E186D8De55A0Aa24cbe772a19",
     timelock: "0x4C7d41cF74BE3994e4BcEb7F7810cd85CB67c973",
-    gasTank: "0x33D6f300D3C4Fc5976bE77D962Ac2a64201f5832",
     resolver: "0x7DEfff816DB6da768De806eC4C8f42fC8FaE4531",
     tokens: {
         USDC: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",

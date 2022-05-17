@@ -4,6 +4,7 @@
 // When running the script with `npx hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
 const hre = require("hardhat");
+const { addresses } = require("./addresses");
 
 
 async function deployResolver() {
@@ -22,12 +23,12 @@ async function polygonScanVerify(contractAddress, args, contractPath) {
 
 
 async function main() {
-  const resolver = await deployResolver();
-  console.log(`
-    Resolver deployed at ${resolver.address}
-  `);
+  // const resolver = await deployResolver();
+  // console.log(`
+  //   Resolver deployed at ${resolver.address}
+  // `);
 
-  await polygonScanVerify(resolver.address, [], "contracts/Resolver.sol:Resolver");
+  await polygonScanVerify(addresses.resolver, [], "contracts/Resolver.sol:Resolver");
 }
 
 // We recommend this pattern to be able to use async/await everywhere
